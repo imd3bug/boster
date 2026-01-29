@@ -495,14 +495,12 @@
             try {
                 // Add likes order
                 if (likes > 0) {
-                    const likesResponse = await fetch('https://justanotherpanel.com/api/v2', {
+                    const likesResponse = await fetch('/api/boost', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            key: apiKey,
-                            action: 'add',
                             service: LIKES_SERVICE_ID,
                             link: postId,
                             quantity: likes
@@ -520,14 +518,12 @@
                 
                 // Add saves order
                 if (saves > 0) {
-                    const savesResponse = await fetch('https://justanotherpanel.com/api/v2', {
+                    const savesResponse = await fetch('/api/boost', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            key: apiKey,
-                            action: 'add',
                             service: SAVES_SERVICE_ID,
                             link: postId,
                             quantity: saves
