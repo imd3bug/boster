@@ -420,11 +420,6 @@
             section.classList.toggle('open');
         }
 
-        // Load API key on page load
-        window.addEventListener('load', () => {
-            // API key is hard-coded, no need to populate field
-        });
-
         // Extract post ID from TikTok URL
         function extractPostId(input) {
             input = input.trim();
@@ -452,31 +447,6 @@
 
         async function boostPost() {
             const apiKey = API_KEY;
-            input = input.trim();
-            
-            // If it's just numbers, return as is
-            if (/^\d+$/.test(input)) {
-                return input;
-            }
-            
-            // Extract from various TikTok URL formats
-            const patterns = [
-                /tiktok\.com\/@[\w.-]+\/video\/(\d+)/,
-                /tiktok\.com\/.*\/(\d+)/,
-                /vm\.tiktok\.com\/(\w+)/,
-                /vt\.tiktok\.com\/(\w+)/
-            ];
-            
-            for (let pattern of patterns) {
-                const match = input.match(pattern);
-                if (match) return match[1];
-            }
-            
-            return input;
-        }
-
-        async function boostPost() {
-            const apiKey = document.getElementById('apiKey').value.trim();
             const tiktokInput = document.getElementById('tiktokUrl').value.trim();
             const likes = parseInt(document.getElementById('likes').value) || 0;
             const saves = parseInt(document.getElementById('saves').value) || 0;
